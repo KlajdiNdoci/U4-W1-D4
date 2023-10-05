@@ -28,6 +28,18 @@ public class Dipendente {
         this.dipartimento = dipartimento;
     }
 
+    public static void stampaDatiDipendente(Dipendente dipendente) {
+        System.out.println(dipendente);
+    }
+
+    public static void stampaPaga(Dipendente dipendente) {
+        System.out.println(dipendente.getStipendio());
+    }
+
+    public static void calcolaPaga(Dipendente dipendente, int oreStraodinario) {
+        System.out.println(dipendente.getStipendio() + (dipendente.getImportoOrarioStraordinario() * oreStraodinario));
+    }
+
     public double getStipendioBase() {
         return stipendioBase;
     }
@@ -51,7 +63,6 @@ public class Dipendente {
     public Livello getLivello() {
         return livello;
     }
-
 
     public Dipartimento getDipartimento() {
         return dipartimento;
@@ -91,6 +102,5 @@ public class Dipendente {
         }
         return this.livello;
     }
-
 
 }
