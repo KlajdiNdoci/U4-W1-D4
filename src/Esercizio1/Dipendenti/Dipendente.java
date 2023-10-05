@@ -5,7 +5,6 @@ import src.Esercizio1.Dipendenti.Enums.Livello;
 
 public class Dipendente {
     protected double stipendioBase = 1000;
-
     protected double stipendio;
     protected int matricola;
     protected double importoOrarioStraordinario;
@@ -21,8 +20,7 @@ public class Dipendente {
 
     }
 
-    public Dipendente(double stipendioBase, double stipendio, int matricola, double importoOrarioStraordinario, Livello livello, Dipartimento dipartimento) {
-        this.stipendioBase = stipendioBase;
+    public Dipendente(double stipendio, int matricola, double importoOrarioStraordinario, Livello livello, Dipartimento dipartimento) {
         this.stipendio = stipendio;
         this.matricola = matricola;
         this.importoOrarioStraordinario = importoOrarioStraordinario;
@@ -32,6 +30,10 @@ public class Dipendente {
 
     public double getStipendioBase() {
         return stipendioBase;
+    }
+
+    public double getStipendio() {
+        return stipendio;
     }
 
     public int getMatricola() {
@@ -49,6 +51,7 @@ public class Dipendente {
     public Livello getLivello() {
         return livello;
     }
+
 
     public Dipartimento getDipartimento() {
         return dipartimento;
@@ -68,5 +71,29 @@ public class Dipendente {
                 ", livello=" + livello +
                 ", dipartimento=" + dipartimento +
                 '}';
+    }
+
+    public Livello promuovi() {
+        if (this.livello == Livello.OPERAIO) {
+            this.livello = Livello.IMPIEGATO;
+            this.stipendioBase = stipendio * 1.2;
+            this.stipendio = stipendioBase;
+        } else if (this.livello == Livello.IMPIEGATO) {
+            this.livello = Livello.QUADRO;
+            this.stipendioBase = stipendio * 1.5;
+            this.stipendio = stipendioBase;
+        } else if (this.livello == Livello.QUADRO) {
+            this.livello = Livello.DIRIGENTE;
+            this.stipendioBase = stipendio * 2;
+            this.stipendio = stipendioBase;
+        } else {
+            System.err.println("il dipendente non puó ricevere promozioni");
+        }
+        return this.livello;
+    }
+
+    public void calcolaPaga(int oreStraodinario) {
+        this.stipendio = stipendioBase + (oreStraodinario * importoOrarioStraordinario);
+        System.out.println(this.stipendio);
     }
 }
