@@ -21,8 +21,8 @@ public class Main {
         dipendente1.promuovi();
         stampaDatiDipendente(dipendente1);
         stampaPaga(dipendente2);
-        dipendente1.calcolaPaga(10);
-        dipendente1.calcolaPaga(12);
+        calcolaPaga(dipendente1, 10);
+        calcolaPaga(dipendente1, 12);
 
     }
 
@@ -34,6 +34,8 @@ public class Main {
         System.out.println(dipendente.getStipendio());
     }
 
-
+    public static void calcolaPaga(Dipendente dipendente, int oreStraodinario) {
+        System.out.println(dipendente.getStipendio() + (dipendente.getImportoOrarioStraordinario() * oreStraodinario));
+    }
 }
 

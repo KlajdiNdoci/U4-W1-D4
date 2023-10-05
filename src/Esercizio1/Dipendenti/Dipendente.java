@@ -92,8 +92,5 @@ public class Dipendente {
         return this.livello;
     }
 
-    public void calcolaPaga(int oreStraodinario) {
-        this.stipendio = stipendioBase + (oreStraodinario * importoOrarioStraordinario);
-        System.out.println(this.stipendio);
-    }
+
 }
